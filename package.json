@@ -1,0 +1,24 @@
+{
+  "name": "Curso_NodeJS",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eusebiops14/Curso_NodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eusebiops14/Curso_NodeJS/issues"
+  },
+  "homepage": "https://github.com/eusebiops14/Curso_NodeJS#readme",
+  "dependencies": {
+    "chalk": "^5.0.1"
+  }
+}
