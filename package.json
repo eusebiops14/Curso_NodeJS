@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/eusebiops14/Curso_NodeJS#readme",
   "dependencies": {
-    "chalk": "^5.0.1"
+    "chalk": "^5.0.1",
+    "node-fetch": "^3.2.3"
   }
 }
