@@ -10,21 +10,33 @@ Código Assíncrono
     que seria a mesma coisa que pararmos tudo que estamos fazendo inclusive de respirar para ficar esperando chegar a mensagem no WhatsApp.
 */
 
+
+//console.log(chalk.blue('Vamos lá'));
+//const paragrafo = 'Texto retornado por uma funcao';
+
 import  chalk  from 'chalk';
 import fs from 'fs';
 
-console.log(chalk.blue('Vamos lá'));
 
-const paragrafo = 'Texto retornado por uma funcao';
 
 function texto(string) {
     return string;
 }
 
-console.log(texto(paragrafo));
+//console.log(texto(paragrafo));
 
 
 /* Trabalhando com biblioteca fs*/
+
+function extraiLinks(texto) {
+    const regex = /\[([^\]]*)\]\((https?:\/\/[^$#\s].[^\s]*)\)/gm;
+    const arrayResultados = [];
+    let temp;
+    while((temp = regex.exec(texto)) !== null) {
+      arrayResultados.push({ [temp[1]]: temp[2] })
+    }
+    return arrayResultados.length === 0 ? 'não há links' : arrayResultados;
+  }
 
 function trataErro(erro) {
     throw new Error(chalk.red(erro.code, 'não há arquivo no caminho'));
@@ -32,15 +44,16 @@ function trataErro(erro) {
 
 /*Trabalhando com promessas:
 promessas” são a forma que o JavaScript utiliza para trabalhar com código assíncrono e que podemos resolvê-las utilizando em conjunto as palavras-chave async e await ou o método .then() */
-async function pegaArquivo(caminhoDoArquivo) { //async marca que a funcao possui codigo assincrono
+export default async function pegaArquivo(caminhoDoArquivo) { //async marca que a funcao possui codigo assincrono
     const enconding = 'utf-8'; 
     try {
         const texto = await fs.promises.readFile(caminhoDoArquivo,enconding); //o awwait garante que o js execute tudo na parte direita da igualdade para só depois atribuir tudo ao lado esquerdo
-        console.log(chalk.green(texto));
+        return extraiLinks(texto);
+        //console.log(chalk.green(texto));
     } catch(erro) {
         trataErro(erro);
     } finally {
-        console.log(chalk.yellow('operação concluída'));
+        //console.log(chalk.yellow('operação concluída'));
     }
 }
 

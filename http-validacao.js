@@ -12,7 +12,10 @@ async function checaStatus(arrayURLs) {
 
 
 function geraArrayDeURLs(arrayLinks) {
-   return arrayLinks.map(objetoLink => Object.values(objetoLink).join());
+    return arrayLinks
+        .map(objetoLink => Object
+        .values(objetoLink)
+        .join());
 }
 
 export default async function validaURLs(arrayLinks) {
